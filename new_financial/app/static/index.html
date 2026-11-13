@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#102e64">
+  <title>FinFlow — Financial Filing Auditor</title>
+  <link rel="stylesheet" href="/static/styles.css">
+  <script>try { if (!sessionStorage.getItem("finflow-intro-seen")) document.documentElement.classList.add("show-intro"); } catch (error) {}</script>
+  <script src="/static/app.js" defer></script>
+</head>
+<body>
+  <div id="intro" class="intro" role="dialog" aria-modal="true" aria-labelledby="intro-brand-name" aria-describedby="intro-step">
+    <div class="intro-glow" aria-hidden="true"></div>
+    <header class="intro-top">
+      <div class="intro-brand">
+        <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none"><path d="M7 24V8h18M7 16h13" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><path d="m17 24 8-8m-7 0h7v7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <span><strong id="intro-brand-name">FinFlow<span class="brand-period">.</span></strong><small>Financial intelligence, human insight.</small>
+        <small>BY MEDORA.</small>
+      </span>
+      </div>
+      <button id="intro-skip" class="intro-skip" type="button">Skip intro <span aria-hidden="true">→</span></button>
+    </header>
+
+    <div id="intro-viewport" class="intro-viewport">
+      <div id="intro-track" class="intro-track">
+        <section class="intro-slide" aria-roledescription="slide" aria-label="1 of 2: AI features">
+          <div class="intro-copy">
+            <p class="intro-kicker"><span>01</span> AI features</p>
+            <h2>Intelligence that explains.<br><em>People who decide.</em></h2>
+            <p class="intro-lead">FinFlow uses AI to explain every extracted metric and answer questions about your audit. The figures themselves are never changed by AI.</p>
+          </div>
+          <div class="intro-cards">
+            <article class="intro-card">
+              <span class="intro-card-icon" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24" fill="none"><path d="m12 3 2.5 6.5L21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5L12 3Z"/></svg></span>
+              <h3>AI reasons for every metric</h3>
+              <p>An LLM explains each metric's meaning, extraction evidence, confidence and validation results — not just flagged values.</p>
+            </article>
+            <article class="intro-card">
+              <span class="intro-card-icon" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24" fill="none"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12Z"/><path d="M8.5 11h7M8.5 14.5h4"/></svg></span>
+              <h3>Ask FinFlow assistant</h3>
+              <p>A chatbot that answers questions using the data of the audit you have selected.</p>
+            </article>
+            <article class="intro-card">
+              <span class="intro-card-icon" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24" fill="none"><circle cx="5" cy="6" r="2"/><circle cx="19" cy="6" r="2"/><circle cx="12" cy="18" r="2"/><path d="M7 6h10M6 8l5 8.3M18 8l-5 8.3"/></svg></span>
+              <h3>Agentic tool selection</h3>
+              <p>A LangGraph agent picks each next tool — SEC retrieval, extraction, validation, XBRL lookup — over MCP.</p>
+            </article>
+            <article class="intro-card">
+              <span class="intro-card-icon" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24" fill="none"><path d="M12 3a9 9 0 1 0 9 9"/><path d="M12 7v5l3 2M16 3h5v5"/></svg></span>
+              <h3>Smart escalation</h3>
+              <p>Confidence scores and validation rules decide which numbers need human judgment.</p>
+            </article>
+          </div>
+          <p class="intro-note"><svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m12 3 8 4v5c0 5-8 9-8 9s-8-4-8-9V7l8-4Z"/><path d="m8 12 3 3 5-6"/></svg>AI content is always labeled. When no AI provider is configured, clearly marked rule-based answers are used instead.</p>
+        </section>
+
+        <section class="intro-slide" aria-roledescription="slide" aria-label="2 of 2: FinFlow facts">
+          <div class="intro-copy">
+            <p class="intro-kicker"><span>02</span> FinFlow facts</p>
+            <h2>Every number.<br><em>Traced to its source.</em></h2>
+            <p class="intro-lead">Each audit retrieves a real Form 10-K from SEC EDGAR, checks it and records every human decision.</p>
+          </div>
+          <div class="intro-facts">
+            <article class="intro-fact"><strong>8</strong><span>Financial metrics extracted per filing, with source evidence</span></article>
+            <article class="intro-fact"><strong>3</strong><span>Validation checks — accounting equation, segment totals, year-on-year</span></article>
+            <article class="intro-fact"><strong>SEC</strong><span>Search filers by name, ticker or CIK; audits require an available 10-K. Offline DEMO included.</span></article>
+            <article class="intro-fact"><strong>XBRL</strong><span>Final values verified against SEC Company Facts</span></article>
+            <article class="intro-fact"><strong>SHA-256</strong><span>Hash-chained, append-only log of human decisions</span></article>
+            <article class="intro-fact"><strong class="intro-fact-compact">PDF<small>·</small>DOCX</strong><span>Visual financial reports generated from current data</span></article>
+          </div>
+          <p class="intro-note"><svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 7v5h-5M4 17v-5h5M5.2 8a8 8 0 0 1 13-2L20 8M4 16l1.8 2a8 8 0 0 0 13-2"/></svg>Checkpointed workflows resume after a restart, and duplicate review decisions are blocked.</p>
+        </section>
+      </div>
+    </div>
+
+    <footer class="intro-controls">
+      <button id="intro-prev" class="intro-nav" type="button" aria-label="Previous slide"><span aria-hidden="true">←</span> Back</button>
+      <div class="intro-dots" role="group" aria-label="Choose slide">
+        <button class="intro-dot" type="button" data-slide="0" aria-label="Slide 1: AI features"></button>
+        <button class="intro-dot" type="button" data-slide="1" aria-label="Slide 2: FinFlow facts"></button>
+      </div>
+      <p id="intro-step" class="sr-only" aria-live="polite"></p>
+      <button id="intro-next" class="intro-nav intro-next" type="button">Next <span aria-hidden="true">→</span></button>
+    </footer>
+    <p class="intro-hint" aria-hidden="true">Swipe or use ← → keys</p>
+  </div>
+
+  <a class="skip-link" href="#workspace">Skip to dashboard</a>
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="FinFlow home">
+      <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none"><path d="M7 24V8h18M7 16h13" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><path d="m17 24 8-8m-7 0h7v7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <span><strong>FinFlow<span class="brand-period">.</span></strong><small>Financial intelligence, human insight.</small></span>
+    </a>
+    <nav class="topbar-nav" aria-label="Workspace navigation">
+      <a href="#workspace">Audit workspace</a>
+      <a href="#audit-history">History</a>
+    </nav>
+    <div class="topbar-right">
+      <span class="secure-indicator"><span></span> Human-in-the-loop</span>
+      <button id="intro-open" class="button button-secondary" type="button" aria-label="About FinFlow"><svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m12 3 2.5 6.5L21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5L12 3Z"/></svg><span class="intro-open-label">About FinFlow</span></button>
+      <button id="refresh-button" class="button button-secondary" type="button"><svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 7v5h-5M4 17v-5h5M5.2 8a8 8 0 0 1 13-2L20 8M4 16l1.8 2a8 8 0 0 0 13-2"/></svg>Refresh</button>
+    </div>
+  </header>
+
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="sidebar-heading"><span class="eyebrow">Your workspace</span><span class="workspace-mark" aria-hidden="true">01</span><button id="logout-button" class="button button-secondary" type="button" disabled>Sign out</button></div>
+      <section class="new-audit-card">
+        <div class="new-audit-icon" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24" fill="none"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9l-6-6Z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></svg></div>
+        <p class="eyebrow">Start with the evidence</p>
+        <h2>A new perspective<br> on your next filing.</h2>
+        <p class="card-description">Choose an SEC filer. Let the numbers tell their story.</p>
+        <form id="company-search-form" class="company-search-form" aria-label="Search SEC filers">
+          <label for="company-query">Company name, ticker or CIK</label>
+          <input id="company-query" name="q" type="search" maxlength="160" autocomplete="off" placeholder="e.g. Apple, AAPL or 0000320193" aria-describedby="company-search-hint" required>
+          <button id="company-search-button" class="button button-secondary" type="submit" disabled>Search SEC registry</button>
+          <p id="company-search-hint" class="form-hint">SEC filers only, not every private company. Enter a CIK for a filer without a listed ticker. Registry matches do not guarantee a 10-K. URLs are not accepted.</p>
+        </form>
+        <p id="company-search-status" class="company-search-status" role="status" aria-live="polite"></p>
+        <div id="company-search-results" class="company-search-results" aria-label="SEC registry results"></div>
+        <form id="run-form">
+          <label for="ticker">Company filing</label>
+          <select id="ticker" name="ticker" required><option value="DEMO">DEMO — Offline demo filing</option></select>
+          <section id="selected-company-panel" class="company-details selected-company-panel" aria-labelledby="selected-company-heading">
+            <h3 id="selected-company-heading">Selected company</h3>
+            <p id="selected-company-status" role="status" aria-live="polite">Loading company choices…</p>
+            <div id="selected-company-details"></div>
+          </section>
+          <div class="form-grid">
+            <div>
+              <label for="confidence">Confidence threshold</label>
+              <input id="confidence" type="number" min="0" max="1" step="0.05" value="0.85" required>
+            </div>
+            <div>
+              <label for="variance">YoY variance threshold</label>
+              <input id="variance" type="number" min="0.05" max="5" step="0.05" value="0.50" required>
+            </div>
+          </div>
+          <button id="start-button" class="button button-primary button-full" type="submit" disabled>Start audit</button>
+          <p class="form-hint">DEMO works offline. Live audits use SEC EDGAR 10-K filings. Selecting a company does not create an audit.</p>
+        </form>
+      </section>
+      <section id="audit-history" class="history-section">
+        <div class="section-heading"><h3>Audit history</h3><span id="run-count" class="count-badge">0</span></div>
+        <div id="run-list" class="run-list"></div>
+      </section>
+      <div class="sidebar-note"><svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m12 3 8 4v5c0 5-8 9-8 9s-8-4-8-9V7l8-4Z"/><path d="m8 12 3 3 5-6"/></svg><p>Evidence you can trace.<br><strong>Decisions you can stand behind.</strong></p></div>
+    </aside>
+
+    <main id="workspace" class="main-content" tabindex="-1">
+      <div class="workspace-heading">
+        <div><p class="eyebrow">The bigger picture, down to the detail</p><h1>Financial audit workspace</h1><p class="workspace-subtitle">From complex filings to confident decisions.</p></div>
+        <span class="workspace-label"><span></span> Financial filing auditor</span>
+      </div>
+      <section id="welcome" class="welcome-panel">
+        <div class="welcome-content">
+          <p class="eyebrow">Meet FinFlow</p>
+          <h2>Every number.<br>A clearer story.</h2>
+          <p>Extract eight financial metrics, uncover inconsistencies, and keep human judgment at the heart of every audit.</p>
+          <a class="welcome-link" href="#run-form">Start your first audit <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="welcome-art" aria-hidden="true"><div class="art-orbit"></div><div class="art-document"><span class="art-document-title">FORM 10-K</span><div class="art-line"></div><div class="art-line short"></div><div class="art-bars"><i></i><i></i><i></i><i></i><i></i></div><span class="art-seal">FF</span></div></div>
+        <div class="welcome-features"><span>SEC filing evidence</span><span>Checkpointed reviews</span><span>XBRL verification</span><span>Append-only audit trail</span></div>
+      </section>
+
+      <div id="run-content" hidden>
+        <section class="run-header">
+          <div class="run-identity">
+            <div class="filing-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none"><path d="M7 27V5h12l6 6v16H7Z"/><path d="M19 5v6h6M12 16h8M12 21h6"/></svg></div>
+            <div><p id="filing-label" class="eyebrow"></p><h2 id="company-name"></h2><p id="filing-meta" class="muted"></p></div>
+          </div>
+          <div class="run-badges"><span id="agent-framework" class="agent-badge" hidden>LangGraph + MCP</span><span id="run-status" class="status-badge"></span></div>
+        </section>
+        <details class="saved-company-panel company-details">
+          <summary>Company details saved with this audit</summary>
+          <div id="audit-company-details"></div>
+        </details>
+        <section id="error-banner" class="error-banner" role="alert" hidden></section>
+
+        <section class="report-toolbar" aria-labelledby="report-heading">
+          <div class="report-description"><p class="eyebrow">Take the complete picture with you</p><h2 id="report-heading">Financial report</h2><p id="report-context">Current numbers, visual charts, source evidence and review decisions.</p></div>
+          <form id="report-form" class="report-actions">
+            <div><label for="report-format">Download format</label><select id="report-format" name="format"><option value="pdf">PDF document (.pdf)</option><option value="docx">Word document (.docx)</option></select></div>
+            <button id="report-button" class="button button-primary" type="submit"><svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12m-4-4 4 4 4-4M5 16v5h14v-5"/></svg><span id="report-button-label">Generate financial report</span></button>
+          </form>
+          <div id="report-speech-controls" class="result-speech-bar" aria-label="Read report explanations aloud"></div>
+        </section>
+
+        <section class="summary-grid" aria-label="Audit summary">
+          <article class="summary-card"><div class="summary-top"><span>Metrics extracted</span><span class="summary-icon" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24" fill="none"><rect x="4" y="3" width="16" height="18" rx="3"/><path d="M8 8h8M8 12h8M8 16h4"/></svg></span></div><strong id="summary-metrics">—</strong><small>Required minimum: 8</small><div class="summary-rule" aria-hidden="true"></div></article>
+          <article class="summary-card approved-card"><div class="summary-top"><span>Automatically approved</span><span class="summary-icon" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg></span></div><strong id="summary-auto">—</strong><small>Passed confidence & validation</small><div class="summary-rule" aria-hidden="true"></div></article>
+          <article class="summary-card pending-card"><div class="summary-top"><span>Pending reviews</span><span class="summary-icon" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span></div><strong id="summary-pending">—</strong><small>Human decision required</small><div class="summary-rule" aria-hidden="true"></div></article>
+          <article class="summary-card accent-card"><div class="summary-top"><span>XBRL accuracy</span><span class="summary-icon" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24" fill="none"><path d="m12 3 8 4v5c0 5-8 9-8 9s-8-4-8-9V7l8-4Z"/><path d="m8 12 3 3 5-6"/></svg></span></div><strong id="summary-accuracy">—</strong><small id="summary-comparisons">Final ground-truth check</small><div class="summary-rule" aria-hidden="true"></div></article>
+        </section>
+
+        <section class="workflow-strip" aria-label="Workflow progress">
+          <div data-step="retrieved"><span>1</span><p>Filing<small>Retrieved</small></p></div>
+          <div data-step="extracted"><span>2</span><p>Metrics<small>Extracted</small></p></div>
+          <div data-step="validated"><span>3</span><p>Rules<small>Validated</small></p></div>
+          <div data-step="review"><span>4</span><p>Human<small>Review</small></p></div>
+          <div data-step="complete"><span>5</span><p>XBRL<small>Verified</small></p></div>
+        </section>
+
+        <div class="workspace-grid">
+          <section class="panel metrics-panel">
+            <div class="panel-heading"><div><p class="eyebrow">The numbers that matter</p><h2>Extracted metrics</h2></div><span class="panel-caption">Select a row for reasons and evidence <span aria-hidden="true">↗</span></span></div>
+            <div class="table-wrap"><table><thead><tr><th>Metric</th><th>Value</th><th>Confidence</th><th>Validation</th><th>Status</th></tr></thead><tbody id="metrics-body"></tbody></table></div>
+          </section>
+          <aside class="panel review-panel">
+            <div class="panel-heading"><div><p class="eyebrow">Your judgment matters</p><h2>Human review</h2></div><span id="review-count" class="count-badge">0</span></div>
+            <div id="review-list" class="review-list"></div>
+          </aside>
+        </div>
+
+        <section id="agent-panel" class="panel agent-panel" hidden>
+          <div class="panel-heading"><div><p class="eyebrow">Behind every decision</p><h2>Dynamic tool-selection trace</h2></div><span id="agent-checkpoint" class="panel-caption"></span></div>
+          <div id="agent-trace" class="agent-trace"></div>
+        </section>
+        <section class="panel audit-panel">
+          <div class="panel-heading"><div><p class="eyebrow">An unbroken record</p><h2>Decision audit log</h2></div><span id="audit-integrity" class="integrity-badge">No decisions yet</span></div>
+          <div class="table-wrap"><table><thead><tr><th>Timestamp</th><th>Metric</th><th>Decision</th><th>Original</th><th>Corrected</th><th>Reviewer</th><th>Hash</th></tr></thead><tbody id="audit-body"></tbody></table></div>
+        </section>
+      </div>
+      <section id="audit-visuals" class="audit-visuals" aria-labelledby="visuals-heading">
+        <div class="viz-header"><div><p class="eyebrow">A different way to see the evidence</p><h2 id="visuals-heading">Your audit, illuminated.</h2><p class="viz-description">Confidence, financial scale and review signals. One connected picture.</p></div><span id="viz-snapshot" class="viz-snapshot">No audit selected</span></div>
+        <div id="viz-empty" class="viz-empty">Start an audit or select one from history to illuminate its data. No sample figures are shown.</div>
+        <div id="viz-content" hidden>
+          <div id="viz-kpis" class="viz-kpis"></div>
+          <div class="viz-grid">
+            <article class="viz-card"><h3>Confidence spectrum</h3><p id="confidence-chart-caption" class="chart-caption"></p><div id="confidence-chart" class="chart-host confidence-chart"></div><div class="chart-legend"><span><i style="background:#58f5d0"></i>At or above threshold, no pending review</span><span><i style="background:#ff8198"></i>Red shade / pulse = current pending human review</span><span><i style="background:#f9ba60"></i>Below threshold, review resolved or not pending</span><span>Dashed line = selected threshold. Reduced motion keeps the shade without pulsing.</span></div></article>
+            <article class="viz-card"><h3>Decision orbit</h3><p class="chart-caption">Current outcomes across all extracted metrics.</p><div id="status-chart" class="chart-host"></div></article>
+            <article class="viz-card"><h3>Financial scale</h3><p class="chart-caption">Current USD values on one linear scale. EPS is shown separately; missing values are not zero.</p><div id="value-chart" class="chart-host"></div><p id="eps-chart-note" class="chart-caption"></p></article>
+            <article class="viz-card"><h3>Validation signals</h3><p class="chart-caption">Initial validation checks per metric. A skipped check is not a pass; decisions do not rerun these checks.</p><div id="validation-chart" class="chart-host"></div><div class="chart-legend"><span><i style="background:#58f5d0"></i>Passed</span><span><i style="background:#ff78bd"></i>Failed</span><span><i style="background:#7184ac"></i>Skipped</span></div></article>
+          </div>
+          <details class="chart-table-details"><summary>Explore the exact chart data</summary><div class="table-wrap"><table><thead><tr><th scope="col">Metric</th><th scope="col">Current value</th><th scope="col">Confidence</th><th scope="col">Decision</th><th scope="col">Passed / failed / skipped</th><th scope="col">XBRL verification</th></tr></thead><tbody id="chart-data-body"></tbody></table></div></details>
+          <p class="viz-footer">Charts read the selected audit only. Confidence belongs to the initial extraction; financial values reflect saved review decisions.</p>
+        </div>
+      </section>
+      <footer class="workspace-footer"><span>FinFlow<span class="brand-period">.</span></span><p>Powered by evidence. Guided by people.</p><small>SEC EDGAR · LangGraph · MCP</small></footer>
+    </main>
+  </div>
+
+  <button id="orchestration-toggle" class="orchestration-toggle" type="button" aria-controls="orchestration-panel" aria-expanded="false"><span class="orbit-mark" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24" fill="none"><circle cx="5" cy="6" r="2"/><circle cx="19" cy="6" r="2"/><circle cx="12" cy="18" r="2"/><path d="M7 6h10M6 8l5 8.3M18 8l-5 8.3"/></svg></span><span><strong>Live orchestration</strong><small>Follow the audit workflow</small></span></button>
+  <aside id="orchestration-panel" class="orchestration-panel" aria-labelledby="orchestration-heading" data-motion="running" hidden>
+    <div class="orchestration-header"><div><p class="eyebrow">From source to certainty</p><h2 id="orchestration-heading">Audit in motion.</h2><span id="orchestration-context" class="orchestration-context">No audit selected</span></div><button id="orchestration-close" class="icon-button" type="button" aria-label="Close live orchestration">×</button></div>
+    <div class="orchestration-controls"><button id="flow-live" class="flow-control" type="button" aria-pressed="true">Live snapshot</button><button id="flow-replay" class="flow-control" type="button" aria-pressed="false">Replay steps</button><button id="flow-next" class="flow-control" type="button" disabled>Step →</button><button id="flow-motion" class="flow-control" type="button" aria-pressed="false">Pause animation</button></div>
+    <div class="orchestration-body"><p id="flow-summary" class="flow-summary" aria-live="polite"></p><p id="flow-sync" class="flow-sync"></p><div id="flow-map" class="flow-map" aria-label="Audit workflow steps"></div><div id="flow-event" class="flow-event"></div></div>
+    <p class="flow-note">Live mode refreshes saved checkpoints every 3 seconds. Replay animates recorded tool selections, not execution timings. Intermediate tool progress is not streamed.</p>
+  </aside>
+  <button id="assistant-toggle" class="assistant-toggle" type="button" aria-controls="assistant-panel" aria-expanded="false"><span class="assistant-toggle-mark" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24" fill="none"><path d="m12 3 2.5 6.5L21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5L12 3Z"/></svg></span><span>Ask FinFlow<small>Your dashboard, explained</small></span></button>
+  <aside id="assistant-panel" class="assistant-panel" aria-label="Dashboard assistant" hidden>
+    <div class="assistant-header"><div><p class="eyebrow">FinFlow assistant</p><h2>A little clarity?</h2><span id="assistant-context">General dashboard help</span></div><button id="assistant-close" class="icon-button" type="button" aria-label="Close assistant">×</button></div>
+    <div id="chat-messages" class="chat-messages" aria-live="polite"></div>
+    <form id="chat-form" class="chat-form"><label for="chat-input" class="sr-only">Ask about the dashboard</label><input id="chat-input" maxlength="2000" autocomplete="off" placeholder="Ask about a metric, review, or result…" required><button id="chat-send" class="button button-primary" type="submit">Send</button></form>
+    <p class="assistant-disclaimer">Answers use the selected run’s current dashboard data.</p>
+  </aside>
+
+  <dialog id="metric-dialog" class="metric-dialog" aria-labelledby="dialog-title">
+    <div class="dialog-header"><div><p id="dialog-eyebrow" class="eyebrow"></p><h2 id="dialog-title"></h2></div><button id="dialog-close" class="icon-button" type="button" aria-label="Close">×</button></div>
+    <div id="dialog-content"></div>
+    <form id="review-form" class="review-form" hidden>
+      <h3>Reviewer decision</h3>
+      <div class="form-grid"><div><label for="reviewer">Reviewer name</label><input id="reviewer" value="reviewer" maxlength="100" required></div><div><label for="corrected-value">Corrected value (for correction only)</label><input id="corrected-value" type="number" step="any" placeholder="Enter exact numeric value"></div></div>
+      <label for="review-note">Decision note</label><textarea id="review-note" rows="2" maxlength="1000" placeholder="Explain the evidence or correction"></textarea>
+      <div class="decision-actions"><button class="button button-approve" data-decision="approve" type="submit">Approve value</button><button class="button button-primary" data-decision="correct" type="submit">Save correction</button><button class="button button-danger" data-decision="reject" type="submit">Reject value</button></div>
+    </form>
+  </dialog>
+  <div id="toast" class="toast" role="status" hidden></div>
+</body>
+</html>
